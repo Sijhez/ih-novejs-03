@@ -1,15 +1,18 @@
-{{!-- <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PLAYERS</title>
-    <link rel="stylesheet" href="/stylesheets/index.css">
-</head>
-<body> --}}
-    <h1>Sección de PLAYERS</h1>
-    <p>Hola brother</p>
-    
-{{!-- </body>
-</html> --}}
+{{!-- views/players.hbs --}}
+	
+<p>Esta es nuestra sección de Players</p>
+
+{{> playerCard}} <!--instancia partials ubicada en /views/partials/playerCard.hbs-->
+
+<ul
+	{{!-- El #each itera un arreglo sobre cada elemento. --}}
+	{{!-- Es un similar a for || .map --}}
+	{{#each data }}
+		{{!-- this es el elemento actual en el que se encuentra la iteración --}}
+		{{!-- this en este momento es: {name:..., lastname:..., photo:..., avg:...} --}}
+		<li><span>Nombre:</span>{{this.name}}</li>
+		<li><span>Apellido:</span>{{this.lastName}}</li>
+		<li><span>Equipo:</span>{{this.team}}</li>
+        <li><span>Foto:</span><img src="{{this.photo}}" width="150px"></li>
+	{{/each}}
+</ul>
